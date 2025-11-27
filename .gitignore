@@ -1,0 +1,70 @@
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.tmp
+*.log
+*~
+
+# === Virtual Environment ===
+venv/
+ENV/
+env/
+.venv/
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+
+# === IDE Files ===
+.vscode/
+.idea/
+
+# === Project-Specific Secrets ===
+# DO NOT COMMIT CREDENTIAL OR TOKEN FILES
+credentials.json
+token.json
+config/config.ini
+config/*.ini
+
+# === AWS ===
+.aws/
+
+# === Cache & Temporary Folders ===
+temp/
+tmp/
+.cache/
+
+# === Byte-compiled / optimized / DLL files ===
+*.so
+*.dll
+
+# === Pip dependency logs ===
+pip-log.txt
+pip-delete-this-directory.txt
+
+# === Jupyter Notebooks ===
+.ipynb_checkpoints/
+
+# === Coverage Reports ===
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.cache
+
+# === Mypy ===
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# === PyCharm ===
+.idea/
+*.iml
+
+# === Local Data Files ===
+*.db
+*.sqlite
