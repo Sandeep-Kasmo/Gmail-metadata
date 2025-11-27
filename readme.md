@@ -176,13 +176,9 @@ Table: Email_Attachments
 .gitignore already protects:
 
          credentials.json
-         
          token.json
-         
          config/config.ini
-         
-         AWS credentials
-         
+         AWS credentials   
          temp files
 
 Never push these files to GitHub.
