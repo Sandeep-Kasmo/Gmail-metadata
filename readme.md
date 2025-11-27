@@ -81,7 +81,7 @@ Use this template (example):
          
          [AWS]
          bucket_name = your-s3-bucket
-         region = ap-south-1
+         region = your-regioon
          
          [DATABASE]
          driver = ODBC Driver 17 for SQL Server
