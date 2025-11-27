@@ -169,15 +169,7 @@ Table: Email_Communications
    
 Table: Email_Attachments
 
-         message_id
-         
-         filename
-         
-         s3_url
-         
-         mime_type
-         
-         size_bytes
+         message_id | filename | s3_url | mime_type | size_bytes
 
 🔒 Security (Important)
 
