@@ -19,7 +19,7 @@ Trusted_Connection=Yes;
             print('connected')
             return conn
     except Exception as e:
-        print(f'Errror conneting to DATABASE:{e}')
+        print(f'>>Error conneting to DATABASE:{e}\n')
         return None
 
 def create_tables_if_not_exist(conn):
@@ -65,7 +65,7 @@ END
         conn.commit()
         cur.close()
     except Exception as e:
-        print('Error creating tables:', e)
+        print('>>Error creating tables:', e,'\n')
 
 def insert_email(conn, meta, attachments):
     insert_sql = """INSERT INTO dbo.Email_Communications
@@ -101,7 +101,7 @@ def insert_email(conn, meta, attachments):
         cur.close()
         return True
     except Exception as e:
-        print('Insert error:', e)
+        print('>>Insert error:', e,'\n')
         try:
             conn.rollback()
         except:

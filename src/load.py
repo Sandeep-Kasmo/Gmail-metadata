@@ -22,7 +22,7 @@ def load(emails):
                     'mime_type': p.get('mimeType'),
                     'size': len(data)
                 })
-                print('Uploaded', fname)
+                print('>Uploaded', fname)
             except Exception as ex:
                 print('Upload failed for', fname, ex)
         meta = {
