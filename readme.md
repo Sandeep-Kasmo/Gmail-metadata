@@ -151,20 +151,20 @@ Commits to SQL Server
 
 Table: Email_Communications
 
-        | Column           | Type    | Description              |
-| ---------------- | ------- | ------------------------ |
-| message_id       | varchar | Gmail message ID (PK)    |
-| thread_id        | varchar | Gmail thread ID          |
-| date_received    | varchar | Date header              |
-| sender_name      | varchar | Sender name              |
-| sender_email     | varchar | Sender email             |
-| receiver_emails  | varchar | To header                |
-| cc               | varchar | CC header                |
-| subject          | varchar | Subject line             |
-| body_text        | text    | Email body               |
-| attachment_1_url | varchar | First attachment S3 URL  |
-| attachment_2_url | varchar | Second attachment S3 URL |
-| attachments_json | text    | JSON of all attachments  |
+         | Column           | Type    | Description              |
+         | ---------------- | ------- | ------------------------ |
+         | message_id       | varchar | Gmail message ID (PK)    |
+         | thread_id        | varchar | Gmail thread ID          |
+         | date_received    | varchar | Date header              |
+         | sender_name      | varchar | Sender name              |
+         | sender_email     | varchar | Sender email             |
+         | receiver_emails  | varchar | To header                |
+         | cc               | varchar | CC header                |
+         | subject          | varchar | Subject line             |
+         | body_text        | text    | Email body               |
+         | attachment_1_url | varchar | First attachment S3 URL  |
+         | attachment_2_url | varchar | Second attachment S3 URL |
+         | attachments_json | text    | JSON of all attachments  |
 
    
 Table: Email_Attachments
