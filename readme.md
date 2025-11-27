@@ -4,25 +4,26 @@ A lightweight ETL pipeline that extracts email metadata + attachments from Gmail
 
 📁 Project Structure
 
-   gmail_metadata_etl/
-   │── config/
-   │     └── config.ini                 # (Ignored in Git – contains secrets)
-   │── src/
-   │     ├── extract.py                 # Gmail extraction
-   │     ├── transform.py               # Data cleaning
-   │     ├── load.py                    # S3 upload + DB insert
-   │     ├── db.py                      # SQL Server connection + insert
-   │     ├── s3_client.py               # AWS S3 uploader
-   │     ├── config_reader.py           # INI config loader
-   │     └── main.py                    # ETL orchestrator
-   │── credentials.json                 # Gmail OAuth credentials (ignored)
-   │── token.json                       # Generated automatically (ignored)
-   │── requirements.txt
-   │── readme.md
-   │── temp/
-   │── .gitignore
+         gmail_metadata_etl/
+         │── config/
+         │     └── config.ini                 # (Ignored in Git – contains secrets)
+         │── src/
+         │     ├── extract.py                 # Gmail extraction
+         │     ├── transform.py               # Data cleaning
+         │     ├── load.py                    # S3 upload + DB insert
+         │     ├── db.py                      # SQL Server connection + insert
+         │     ├── s3_client.py               # AWS S3 uploader
+         │     ├── config_reader.py           # INI config loader
+         │     └── main.py                    # ETL orchestrator
+         │── credentials.json                 # Gmail OAuth credentials (ignored)
+         │── token.json                       # Generated automatically (ignored)
+         │── requirements.txt
+         │── readme.md
+         │── temp/
+         │── .gitignore
 
 🚀 Features
+
 ✔ Gmail Email Extraction
 
 Reads email metadata: From, To, CC, Subject, Body, Date
@@ -55,41 +56,41 @@ Config-driven (everything in config.ini)
 
 1. Clone the repository
 
-   git clone <your-repo-url>
-   cd gmail_metadata_etl
+         git clone <your-repo-url>
+         cd gmail_metadata_etl
 
-3. Install dependencies
+2. Install dependencies
 
-   pip install -r requirements.txt
+         pip install -r requirements.txt
 
-5. Create config.ini (DO NOT COMMIT)
+3. Create config.ini (DO NOT COMMIT)
 
 Create this file:
 
-   gmail_metadata_etl/
-       config/
-           config.ini
+         gmail_metadata_etl/
+             config/
+                 config.ini
 
 
 Use this template (example):
 
-   [GOOGLE]
-   credentials_json = ../credentials.json
-   token_json = ../token.json
-   gmail_query = is:unread
-   
-   [AWS]
-   bucket_name = your-s3-bucket
-   region = ap-south-1
-   
-   [DATABASE]
-   driver = ODBC Driver 17 for SQL Server
-   server = YOURPCNAME\SQLSERVER
-   database = YourDatabaseName
-   trusted_connection = Yes
-   
-   [GENERAL]
-   temp_dir = ../temp
+         [GOOGLE]
+         credentials_json = ../credentials.json
+         token_json = ../token.json
+         gmail_query = is:unread
+         
+         [AWS]
+         bucket_name = your-s3-bucket
+         region = ap-south-1
+         
+         [DATABASE]
+         driver = ODBC Driver 17 for SQL Server
+         server = YOURPCNAME\SQLSERVER
+         database = YourDatabaseName
+         trusted_connection = Yes
+         
+         [GENERAL]
+         temp_dir = ../temp
 
 4. Add Gmail OAuth credentials
 
@@ -99,13 +100,13 @@ Download credentials.json from:
 
 Place it at project root:
 
-   gmail_metadata_etl/credentials.json
+         gmail_metadata_etl/credentials.json
 
 5. Run the ETL
 
 From project root:
 
-   python -m src.main
+         python -m src.main
 
 
 First run will:
@@ -150,45 +151,45 @@ Commits to SQL Server
 
 Table: Email_Communications
 
-   Column	Type	Description
-   message_id	varchar	Gmail message ID (PK)
-   thread_id	varchar	Gmail thread ID
-   date_received	varchar	Date header
-   sender_name	varchar	Sender name
-   sender_email	varchar	Sender email
-   receiver_emails	varchar	To header
-   cc	varchar	CC header
-   subject	varchar	Subject line
-   body_text	text	Email body
-   attachment_1_url	varchar	First attachment S3 URL
-   attachment_2_url	varchar	Second attachment S3 URL
-   attachments_json	text	JSON of all attachments
+         Column	Type	Description
+         message_id	varchar	Gmail message ID (PK)
+         thread_id	varchar	Gmail thread ID
+         date_received	varchar	Date header
+         sender_name	varchar	Sender name
+         sender_email	varchar	Sender email
+         receiver_emails	varchar	To header
+         cc	varchar	CC header
+         subject	varchar	Subject line
+         body_text	text	Email body
+         attachment_1_url	varchar	First attachment S3 URL
+         attachment_2_url	varchar	Second attachment S3 URL
+         attachments_json	text	JSON of all attachments
    
 Table: Email_Attachments
 
-   message_id
-   
-   filename
-   
-   s3_url
-   
-   mime_type
-   
-   size_bytes
+         message_id
+         
+         filename
+         
+         s3_url
+         
+         mime_type
+         
+         size_bytes
 
 🔒 Security (Important)
 
 .gitignore already protects:
 
-   credentials.json
-   
-   token.json
-   
-   config/config.ini
-   
-   AWS credentials
-   
-   temp files
+         credentials.json
+         
+         token.json
+         
+         config/config.ini
+         
+         AWS credentials
+         
+         temp files
 
 Never push these files to GitHub.
 
@@ -196,21 +197,21 @@ Never push these files to GitHub.
 
 Test extraction only:
 
-   from src.extract import extract_emails
-   emails = extract_emails(max_results=5)
-   print(emails)
+         from src.extract import extract_emails
+         emails = extract_emails(max_results=5)
+         print(emails)
 
 
 Test DB connection:
 
-   from src.db import establish_conn
-   establish_conn()
+         from src.db import establish_conn
+         establish_conn()
 
 
 Test S3 upload:
 
-   from src.s3_client import upload_bytes
-   upload_bytes(b"test", "test-folder/test.txt")
+         from src.s3_client import upload_bytes
+         upload_bytes(b"test", "test-folder/test.txt")
 
 🔄 Common Issues
 
