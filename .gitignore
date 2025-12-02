@@ -1,0 +1,54 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.egg-info/
+build/
+dist/
+.env
+.venv
+venv/
+ENV/
+
+# -------------------------
+# VSCode / PyCharm
+# -------------------------
+.idea/
+.vscode/
+*.iml
+
+# -------------------------
+# Sensitive Files
+# -------------------------
+*.json
+# KEEP config.ini → whitelist it explicitly
+config
+!config/config.ini
+
+# OAuth / Tokens
+token.json
+credentials.json
+src/credentials.json
+src/token.json
+
+# -------------------------
+# Local Attachments / Output
+# -------------------------
+attachments/
+*.csv
+*.xlsx
+*.log
+*.tmp
+
+# -------------------------
+# OS Files
+# -------------------------
+Thumbs.db
+.DS_Store
+*.swp
+credentials

@@ -1,0 +1,27 @@
+# Core Python libraries
+beautifulsoup4
+pandas
+sqlalchemy
+pyodbc
+boto3
+
+# Gmail API & OAuth
+ezgmail
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+
+# Database drivers
+PyMySQL  # optional — safe to include
+pymssql  # optional — safe to include
+
+# AWS
+botocore
+s3transfer
+
+# XML / HTML parsing
+lxml      # optional but recommended for faster BeautifulSoup
+
+# For warnings filtering (built-in, no install required)
+# warnings   # do NOT include (Python built-in)
